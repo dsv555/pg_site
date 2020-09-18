@@ -38,7 +38,6 @@ function mime_header_encode($str, $data_charset, $send_charset)
     return '=?' . $send_charset . '?B?' . base64_encode($str) . '?=';
 }
 
-
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
 $compony = filter_input(INPUT_POST, 'compony', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -52,12 +51,12 @@ $html .= '<tr> <td>Контактный телефон:</td> <td>' . $phone . '<
 $html .= '</table>';
 
 echo send_mime_mail(
-    'bvs@podari-zhizn.ru.',
-    'bvs@podari-zhizn.ru.',
     'bvs@podari-zhizn.ru',
     'bvs@podari-zhizn.ru',
-    'KOI8-R',
-    'KOI8-R',
+    'bvs@podari-zhizn.ru',
+    'bvs@podari-zhizn.ru',
+    'UTF-8',
+    'UTF-8',
     'Заявка на участия акции',
     $html,
     true
