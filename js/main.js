@@ -42,6 +42,7 @@ $(document).ready((function() {
         var data = $(this).serialize()
         $.post(action, data).then(function() {
             $('.modal_form').hide()
+            $('.modal_form input').val('')
             $('.modal__message').show()
             setTimeout(function() {
                 $('.modal').fadeOut(300)
