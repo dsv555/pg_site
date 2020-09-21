@@ -24,7 +24,7 @@ $mail->setFrom('dubserg@kvokka.com', 'dubserg@kvokka.com');
 $mail->addAddress('dubserg@kvokka.com', 'dubserg@kvokka.com');
 
 // Тема письма
-$mail->Subject = 'Заявка на участия акции';
+$mail->Subject = 'Заявка на участие акции';
 
 // Тело письма
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
