@@ -13,15 +13,18 @@ $mail->SMTPAuth = true;
 $mail->SMTPDebug = 0;
 
 $mail->Host = 'ssl://smtp.gmail.com';
-$mail->Port = 465;
 $mail->Username = 'bvs@podari-zhizn.ru';
 $mail->Password = 'Svetaga66';
+$mail->Port = 465;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  
+$mail->isHTML(true);
 
 // От кого
-$mail->setFrom('bvs@podari-zhizn.ru', 'bvs@podari-zhizn.ru');
+$mail->setFrom('bvs@podari-zhizn.ru');
 
 // Кому
-$mail->addAddress('bvs@podari-zhizn.ru', 'bvs@podari-zhizn.ru');
+$mail->addAddress('bvs@podari-zhizn.ru');
 
 // Тема письма
 $mail->Subject = 'Заявка на участие акции';
@@ -33,13 +36,13 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $html = '<table>';
-$html .= '<tr> <td>Ваше имя:</td> <td>' . trim($name) . '</td></tr>';
-$html .= '<tr> <td>Название компании:</td> <td>' . trim($compony) . '</td></tr>';
-$html .= '<tr> <td>Ваш e-mail:</td> <td></td>' . trim($email) . '</tr>';
-$html .= '<tr> <td>Контактный телефон:</td> <td>' . trim($phone) . '</td></tr>';
+$html .= '<tr><td>Ваше имя:</td> <td>' . trim($name) . '</td></tr>';
+$html .= '<tr><td>Название компании:</td> <td>' . trim($compony) . '</td></tr>';
+$html .= '<tr><td>Ваш e-mail:</td> <td></td>' . trim($email) . '</tr>';
+$html .= '<tr><td>Контактный телефон:</td> <td>' . trim($phone) . '</td></tr>';
 $html .= '</table>';
 
-$mail->msgHTML($html);
+$mail->Body = $html;
 
 $mail->send();
 
