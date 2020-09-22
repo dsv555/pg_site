@@ -12,16 +12,16 @@ $mail->isSMTP();
 $mail->SMTPAuth = true;
 $mail->SMTPDebug = 0;
 
-$mail->Host = 'ssl://smtp.yandex.ru';
+$mail->Host = 'ssl://smtp.gmail.com';
 $mail->Port = 465;
-$mail->Username = 'dubserg@kvokka.com';
-$mail->Password = 'serjoga55';
+$mail->Username = 'bvs@podari-zhizn.ru';
+$mail->Password = 'Svetaga66';
 
 // От кого
-$mail->setFrom('dubserg@kvokka.com', 'dubserg@kvokka.com');
+$mail->setFrom('bvs@podari-zhizn.ru', 'bvs@podari-zhizn.ru');
 
 // Кому
-$mail->addAddress('dubserg@kvokka.com', 'dubserg@kvokka.com');
+$mail->addAddress('bvs@podari-zhizn.ru', 'bvs@podari-zhizn.ru');
 
 // Тема письма
 $mail->Subject = 'Заявка на участие акции';
